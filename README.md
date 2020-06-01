@@ -7,22 +7,39 @@
 ## Install
 
 ```bash
-npm install --save react-slots
+yarn add react-slots
 ```
 
 ## Usage
 
-```tsx
-import React, { Component } from 'react'
+```jsx
+import { Slot, Template, withSlots } from 'react-slots'
 
-import MyComponent from 'react-slots'
-import 'react-slots/dist/index.css'
+import React from 'react'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Parent = withSlots(() => {
+  return (
+    <>
+      <Slot name='header'>default header</Slot>
+      <Slot scope={{ value: 'World' }}>default content slot</Slot>
+      <div>Other content</div>
+      <Slot name="footer">default footer</Slot>
+    </>
+  )
+})
+
+const App = () => {
+  return (
+    <Parent>
+      <Template slot='header'>Custom header</Template>
+      <Template>
+        {({ value }) => `Hello ${value}`}
+      </Template>
+    </Parent>
+  )
 }
+
+export default App
 ```
 
 ## License
