@@ -2,12 +2,18 @@
 
 > Vue like React slots
 
-[![NPM](https://img.shields.io/npm/v/react-slots.svg)](https://www.npmjs.com/package/react-slots) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
 
+Configure .npmrc:
+
+```
+@sceptyk:registry=https://npm.pkg.github.com
+```
+
+Add package to your project:
+
 ```bash
-yarn add react-slots
+yarn add @sceptyk/react-slots
 ```
 
 ## Usage
