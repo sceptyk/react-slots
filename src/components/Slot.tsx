@@ -1,12 +1,14 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { Fragment, FunctionComponent } from 'react'
 
-export const Slot: FunctionComponent = () => {
-  const [clicks, setClicks] = useState(initial)
+interface SlotProps {
+  name: string,
+  scope: any
+}
+
+export const Slot: FunctionComponent<SlotProps> = ({ children }) => {
   return (
-    <>
-      <p>Clicks: {clicks}</p>
-      <button onClick={() => setClicks(clicks + 1)}>+</button>
-      <button onClick={() => setClicks(clicks - 1)}>-</button>
-    </>
+    <Fragment>
+      {children}
+    </Fragment>
   )
 }

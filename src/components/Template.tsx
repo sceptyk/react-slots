@@ -1,12 +1,17 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { Fragment, FunctionComponent } from 'react'
 
-export const Template: FunctionComponent = () => {
-  const [clicks, setClicks] = useState(initial)
+interface TemplateProps {
+  slot: string
+}
+
+export const Template: FunctionComponent<TemplateProps> = ({
+  slot,
+  children
+}) => {
   return (
-    <>
-      <p>Clicks: {clicks}</p>
-      <button onClick={() => setClicks(clicks + 1)}>+</button>
-      <button onClick={() => setClicks(clicks - 1)}>-</button>
-    </>
+    <Fragment>
+      {slot}
+      {children}
+    </Fragment>
   )
 }
